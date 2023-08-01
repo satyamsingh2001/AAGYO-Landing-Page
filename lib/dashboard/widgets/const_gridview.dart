@@ -4,6 +4,8 @@ import 'package:aagyolandingpage/styles/textstyle_const.dart';
 import 'package:flutter/material.dart';
 
 class ConstGridView extends StatelessWidget {
+  const ConstGridView({super.key});
+
   @override
   Widget build(BuildContext context) {
 
@@ -24,11 +26,12 @@ class ConstGridView extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GridView.builder(
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      physics:  const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of columns in the grid
           crossAxisSpacing: size.width*.05, // Spacing between columns
           mainAxisSpacing:  size.height*.05,
+          mainAxisExtent: 380,
           childAspectRatio:  3/2,
       ),
       itemCount: 4,
@@ -40,23 +43,27 @@ class ConstGridView extends StatelessWidget {
             elevation: 5,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                child: Column(
+                child: Wrap(
                   children: [
-                    Image.asset(
-                      img[index],
-                      height: 150,
-                      width: 150,
-                    ),
-                    Text(
-                      name[index],
-                      style: AppTextStyles.kBody20SemiboldTextStyle
-                          .copyWith(color: AppColors.neutralDark),
-                    ),
-                    SizedBox(height: size.height*0.02,),
-                    Text(
-                      text[index],
-                      style: AppTextStyles.kBody17RegularTextStyle
-                          .copyWith(color: AppColors.neutralDark),
+                    Column(
+                      children: [
+                        Image.asset(
+                          img[index],
+                          height: 150,
+                          width: 150,
+                        ),
+                        Text(
+                          name[index],
+                          style: AppTextStyles.kBody20SemiboldTextStyle
+                              .copyWith(color: AppColors.neutralDark),
+                        ),
+                        SizedBox(height: size.height*0.02,),
+                        Text(
+                          text[index],
+                          style: AppTextStyles.kBody17RegularTextStyle
+                              .copyWith(color: AppColors.neutralDark),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -67,4 +74,5 @@ class ConstGridView extends StatelessWidget {
       },
     );
   }
+
 }

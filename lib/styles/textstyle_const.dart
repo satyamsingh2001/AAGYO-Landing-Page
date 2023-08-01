@@ -4,12 +4,12 @@ class AppTextStyles {
 
   static const TextStyle kLargeTitleTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 36,
+    fontSize: 30,
   );
 
-  static const TextStyle k48 = TextStyle(
+  static const TextStyle k40 = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 48,
+    fontSize: 40,
   );
 
   static const TextStyle kHeading1TextStyle = TextStyle(

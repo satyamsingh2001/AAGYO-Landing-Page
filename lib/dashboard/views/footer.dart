@@ -35,7 +35,7 @@ class ConstFooter extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height:size.height*0.04,),
-                    Text("Lorem ipsum dolor sit amet\nconsectetur adipiscing elit aliquam",style: AppTextStyles.kBody17RegularTextStyle.copyWith(color: AppColors.neutralBodyFont),),
+                    Text("Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam",style: AppTextStyles.kBody17RegularTextStyle.copyWith(color: AppColors.neutralBodyFont),),
                     SizedBox(height: size.height*0.1,),
                     Image.asset(playstore),
                     SizedBox(height: size.height*0.04,),
@@ -127,20 +127,10 @@ class ConstTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Wrap(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-           leading??SizedBox(width:0),
-            TextButton(onPressed:ontap, child: Text(text,style: AppTextStyles.kBody17RegularTextStyle.copyWith(color: AppColors.white60),)),
-          ],
-        ),
-        // SizedBox(height: size.height*0.1,),
+       leading??SizedBox(width:0),
+        TextButton(onPressed:ontap, child: Text(text,style: AppTextStyles.kBody17RegularTextStyle.copyWith(color: AppColors.white60),)),
       ],
     );
   }

@@ -15,17 +15,17 @@ class ConstCarousel extends StatelessWidget {
         autoPlay: true,
         viewportFraction: 0.2,
         enlargeCenterPage: true,
-        aspectRatio: 16 / 9,
-        autoPlayInterval: Duration(seconds: 3),
-        autoPlayAnimationDuration: Duration(milliseconds: 800),
+        aspectRatio: 18 / 9,
+        autoPlayInterval: const Duration(seconds: 3),
+        autoPlayAnimationDuration: const Duration(milliseconds: 800),
       ),
       items: imageUrls.map((url) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.symmetric(horizontal: 0.0),
-              child: Image.network(url, height: 100,width: 100,),
+              margin: const EdgeInsets.symmetric(horizontal: 0.0),
+              child: Image.asset(url,),
             );
           },
         );
