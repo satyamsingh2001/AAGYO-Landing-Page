@@ -308,7 +308,7 @@ class HomeScreen extends StatelessWidget {
                       return Stack(
                         children: [
                           SizedBox(
-                            height: size.height * 0.79,
+                            height: size.height * 0.82,
                             child: Align(
                               alignment: AlignmentDirectional.bottomEnd,
                               child: Wrap(
@@ -379,10 +379,10 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Positioned(
                             right: 0,
-                            top: 0,
+                            bottom: 60,
                             child: Image.asset(
                               deliveryBoy,
-                              height: size.height * 0.79, // Adjusted height here
+                              height: size.height * .9, // Adjusted height here
                             ),
                           ),
                         ],
