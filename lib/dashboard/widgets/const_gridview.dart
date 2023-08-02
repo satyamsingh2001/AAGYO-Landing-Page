@@ -30,46 +30,43 @@ class ConstGridView extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of columns in the grid
           crossAxisSpacing: size.width*.05, // Spacing between columns
-          mainAxisSpacing:  size.height*.05,
-          mainAxisExtent: 380,
+          mainAxisSpacing:  size.height*.005,
+          mainAxisExtent: size.height*.7,
           childAspectRatio:  3/2,
       ),
       itemCount: 4,
       itemBuilder: (context, index) {
         // Return a grid item widget based on the index
-        return SizedBox(
-          height: size.height*1.2,
-          child: Card(
-            elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                child: Wrap(
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset(
-                          img[index],
-                          height: 150,
-                          width: 150,
-                        ),
-                        Text(
-                          name[index],
-                          style: AppTextStyles.kBody20SemiboldTextStyle
-                              .copyWith(color: AppColors.neutralDark),
-                        ),
-                        SizedBox(height: size.height*0.02,),
-                        Text(
-                          text[index],
-                          style: AppTextStyles.kBody17RegularTextStyle
-                              .copyWith(color: AppColors.neutralDark),
-                        ),
-                      ],
-                    ),
-                  ],
+        return Wrap(
+          children: [
+            Card(
+              elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        img[index],
+                        height: 150,
+                        width: 150,
+                      ),
+                      Text(
+                        name[index],
+                        style: AppTextStyles.kBody20SemiboldTextStyle
+                            .copyWith(color: AppColors.neutralDark),
+                      ),
+                      SizedBox(height: size.height*0.07,),
+                      Text(
+                        text[index],
+                        style: AppTextStyles.kBody17RegularTextStyle
+                            .copyWith(color: AppColors.neutralDark),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            // ),
-          ),
+              // ),
+            ),
+          ],
         );
       },
     );

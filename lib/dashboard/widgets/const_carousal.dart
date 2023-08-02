@@ -13,7 +13,7 @@ class ConstCarousel extends StatelessWidget {
       options: CarouselOptions(
         // Customize options here, such as autoPlay, aspectRatio, etc.
         autoPlay: true,
-        viewportFraction: 0.2,
+        viewportFraction: 0.18,
         enlargeCenterPage: true,
         aspectRatio: 18 / 9,
         autoPlayInterval: const Duration(seconds: 3),

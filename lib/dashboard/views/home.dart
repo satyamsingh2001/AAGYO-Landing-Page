@@ -192,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: size.width * .1, vertical: 10),
-                    child: ConstGridView()),
+                    child: const ConstGridView()),
                 SizedBox(
                   height: size.height * .1,
                 ),
@@ -300,69 +300,95 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: size.height * .15,
                 ),
-                Stack(
-                  children: [
-                    SizedBox(
-                      height: size.height * 0.79,
-                      child: Align(
-                        alignment: AlignmentDirectional.bottomEnd,
-                        child: Wrap(
-                          children: [
-                            ConstantContainer(
-                              height: size.height * 0.6,
-                              width: size.width / 2,
-                              color: AppColors.primary700,
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(
-                                   size.width * .05,
-                                  size.height * .1,size.width * .05,0
-                                ),
-                                child: Wrap(
-                                  children: [
-                                    Text(
-                                      "AAGYO App is Available For All Devices",
-                                      style: AppTextStyles.k40
-                                          .copyWith(color: AppColors.white),
+                SizedBox(
+                  height:size.height * 0.79,
+                  child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        Size size = constraints.biggest;
+                      return Stack(
+                        children: [
+                          SizedBox(
+                            height: size.height * 0.79,
+                            child: Align(
+                              alignment: AlignmentDirectional.bottomEnd,
+                              child: Wrap(
+                                alignment: WrapAlignment.end,
+                                children: [
+                                  ConstantContainer(
+                                    height: size.height * 0.7,
+                                    width: size.width *
+                                        0.4, // Adjusted width for the left container
+                                    color: AppColors.primary700,
+                                    borderColor: AppColors.primary700,
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                        size.width * 0.05,
+                                        size.height * 0.1,
+                                        size.width * 0.05,
+                                        0,
+                                      ),
+                                      child: Wrap(
+                                        crossAxisAlignment: WrapCrossAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: size.width * 0.35,
+                                            child: Text(
+                                              "AAGYO App is Available For All Devices",
+                                              style: AppTextStyles.k40
+                                                  .copyWith(color: AppColors.white),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.03,
+                                          ),
+                                          Container(
+                                            width: size.width * 0.35,
+                                            child: Text(
+                                              "Say goodbye to the hassle of traditional shopping",
+                                              style: AppTextStyles
+                                                  .kBody20RegularTextStyle
+                                                  .copyWith(color: AppColors.white30),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.02,
+                                          ),
+                                          Wrap(
+                                            spacing: size.width * 0.005,
+                                            children: [
+                                              Image.asset(playstore,
+                                                  height: 40, width: 130),
+                                              Image.asset(apple,
+                                                  height: 40, width: 130),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(
-                                      height: size.height * 0.08,
-                                    ),
-                                    Text(
-                                      "Say goodbye to the hassle of traditional shopping",
-                                      style: AppTextStyles.kBody20RegularTextStyle
-                                          .copyWith(color: AppColors.white30),
-                                    ),
-                                    SizedBox(
-                                      height: size.height * .01,
-                                    ),
-                                    Wrap(
-                                      children: [
-                                        Image.asset(playstore),
-                                        SizedBox(
-                                          width: size.width * 0.005,
-                                        ),
-                                        Image.asset(apple),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  ConstantContainer(
+                                    height: size.height * 0.7,
+                                    width: size.width *
+                                        0.6, // Adjusted width for the right container
+                                    color: AppColors.primary700,
+                                    borderColor: AppColors.primary700,
+                                  ),
+                                ],
                               ),
                             ),
-                            ConstantContainer(
-                              height: size.height * 0.6,
-                              width: size.width / 2,
-                              color: AppColors.primary700,
+                          ),
+                          Positioned(
+                            right: 0,
+                            top: 0,
+                            child: Image.asset(
+                              deliveryBoy,
+                              height: size.height * 0.79, // Adjusted height here
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: Image.asset(deliveryBoy),
-                    ),
-                  ],
+                          ),
+                        ],
+                      );
+                    }
+                  ),
                 ),
                 SizedBox(
                   height: size.height * .1,
